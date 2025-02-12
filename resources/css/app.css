@@ -1,0 +1,131 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+[x-cloak] {
+    display: none;
+}
+
+#sidebar {
+    width: 250px;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+    white-space: nowrap;
+    position: fixed; 
+    left: 0; 
+}
+
+#sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: padding 0.3s ease-in-out;
+}
+
+#sidebar.collapsed {
+    width: 70px;
+}
+
+#sidebar.collapsed .nav-link {
+    justify-content: center;
+}
+
+#sidebar.collapsed .nav-link span {
+    display: none;
+}
+
+/* Esconde o nome e a seta quando o sidebar está colapsado */
+#sidebar.collapsed .user-menu span {
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+/* Mantém apenas a imagem centralizada */
+#sidebar.collapsed .user-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ajusta a posição do dropdown para não quebrar ao colapsar */
+#sidebar.collapsed .dropdown-menu {
+    position: absolute;
+    right: 0;
+    bottom: 40px;
+    transform: translateX(50%); /* Centraliza corretamente */
+}
+
+.user-menu img {
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+
+#main-content {
+    margin-left: 250px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/*USUARIO*/
+
+/* Estilo do container do usuário */
+.user-menu {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Estiliza o dropdown para manter posição correta */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #2c2c2c;
+    min-width: 160px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 10px 0;
+    z-index: 1000;
+    right: 0;
+    bottom: 40px; /* Para subir quando aberto */
+    transition: left 0.3s ease-in-out, right 0.3s ease-in-out;
+}
+
+/* Estilizando os itens do menu */
+.dropdown-menu a, .dropdown-menu button {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+    border: none;
+    width: 100%;
+    text-align: left;
+    background: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dropdown-menu a:hover, .dropdown-menu button:hover {
+    background-color: #444;
+}
+
+/* Ícone de seta */
+.arrow {
+    font-size: 12px;
+    margin-left: 5px;
+    transition: transform 0.2s;
+}
+
+/* Girar seta para cima quando dropdown estiver aberto */
+.user-menu.active .arrow {
+    transform: rotate(0deg); /* Normal */
+}
+
+/* Setinha padrão aponta para cima quando o menu estiver fechado */
+.arrow {
+    transform: rotate(180deg);
+}
