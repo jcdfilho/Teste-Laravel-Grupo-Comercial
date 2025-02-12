@@ -75,17 +75,17 @@
                             <div class="mb-3">
                                 <label for="nome_fantasia" class="form-label">Nome Fantasia</label>
                                 <input wire:model="nome_fantasia" type="text" class="form-control" id="nome_fantasia" placeholder="Digite o nome fantasia da Unidade">
-                                @error('nomefantasia') <span class="text-danger">{{ $message }}</span> @enderror
+                                @error('nome_fantasia') <span class="text-danger">'Nome Fantasia precisa ser preenchida'</span> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="razao_social" class="form-label">Razão Social</label>
                                 <input wire:model="razao_social" type="text" class="form-control" id="razao_social" placeholder="Digite a razão social da Unidade">
-                                @error('razaosocial') <span class="text-danger">{{ $message }}</span> @enderror
+                                @error('razao_social') <span class="text-danger">'Razão Social precisa ser preenchida'</span> @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="cnpj" class="form-label">CNPJ</label>
                                 <input wire:model="cnpj" type="text" class="form-control" id="cnpj" placeholder="Digite o CNPJ">
-                                @error('cnpj') <span class="text-danger">{{ $message }}</span> @enderror
+                                @error('cnpj') <span class="text-danger">'CNPJ precisa ser preenchido'</span> @enderror
                             </div>
                             @if(!$unidadeId)
                                 <div class="mb-3">
@@ -96,7 +96,7 @@
                                             <option value="{{ $bandeira->id }}">{{ $bandeira->nome }}</option>
                                         @endforeach
                                     </select>
-                                    @error('bandeira_id') <span class="text-danger">{{ $message }}</span> @enderror
+                                    @error('bandeira_id') <span class="text-danger">'Bandeira precisa ser preenchida'</span> @enderror
                                 </div>
                             @endif
                             <button type="submit" class="btn btn-success">{{ $unidadeId ? 'Atualizar Unidade' : 'Criar Unidade' }}</button>
@@ -167,11 +167,10 @@
                             @endforeach
                         </tbody>
                     </table>
-
+                    {{ $unidades->links() }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-

@@ -59,35 +59,79 @@
                 </form>
             </div>
         </div>
-
-
     </div>
 
     <!-- Main Content -->
     <div id="main-content" class="flex-grow-1 p-4" style="transition: margin-left 0.3s; margin-left: 220px;">
         <h1>Dashboard</h1>
+        
+        <!-- Resumo de Entidades -->
         <div class="row my-4">
+            <!-- Total de Grupos Econômicos -->
             <div class="col-md-3">
-                <div class="card text-white bg-primary mb-3">
-                    <div class="card-header">Grupos Econômicos</div>
+                <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">
-                            <table class="table">
-                                <tbody>
-                                    @foreach($grupos as $grupo)
-                                    <tr class="grupo-row" style="cursor: pointer;" data-nome="{{ $grupo->nome }}">
-                                        <td>{{ $grupo->nome }}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </h5>
+                        <h5>Total de Grupos Econômicos</h5>
+                        <p>{{ $totalGrupos }}</p>
                     </div>
                 </div>
-                <div id="grupo-selecionado" class="mt-3">
-                    <strong>Grupo Selecionado:</strong> Nenhum
+            </div>
+            
+            <!-- Total de Bandeiras -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Total de Bandeiras</h5>
+                        <p>{{ $totalBandeiras }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total de Unidades -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Total de Unidades</h5>
+                        <p>{{ $totalUnidades }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Total de Colaboradores -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Total de Colaboradores</h5>
+                        <p>{{ $totalColaboradores }}</p>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- Gráfico -->
+        <div class="row my-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Gráfico de Colaboradores por Unidade</h5>
+                        <canvas id="colaboradoresChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status de Fila -->
+        <div class="row my-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Status de Fila</h5>
+                        <p>Status: <span class="badge bg-success">Em andamento</span></p>
+                        <p>Progresso da exportação de relatórios: 50%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>

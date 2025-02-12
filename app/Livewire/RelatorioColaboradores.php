@@ -86,18 +86,25 @@ class RelatorioColaboradores extends Component
         ];
         
         $user = Auth::user();
-        if ($user) {
-            $usuarioId = $user->id;
-        } else {
-            return response()->json(['message' => 'Usuário não autenticado.'], 401);
+        if (!$user) {
+            session()->flash('error', 'Usuário não autenticado.');
+            return;
         }
 
+        ExportarRelatorioJob::dispatch($parametros, $user->id);
 
-        ExportarRelatorioJob::dispatch($parametros, $usuarioId);
-
-        return response()->json([
-            'message' => 'A exportação foi iniciada. Você será notificado quando estiver pronta.'
-        ]);
+        session()->flash('success', 'A exportação foi iniciada. Você será notificado quando estiver pronta.');
     }
 
+    public function markAsRead($notificationId)
+    {
+        $user = Auth::user();
+
+        if ($user) {
+            $notification = $user->unreadNotifications->find($notificationId);
+            if ($notification) {
+                $notification->markAsRead();
+            }
+        }
+    }
 }

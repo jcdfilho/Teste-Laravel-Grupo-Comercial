@@ -29,10 +29,22 @@ class Dashboard extends Component
     public function mount()
     {
         $this->totalGrupos = GrupoEconomico::count();
-        // $this->totalBandeiras = Bandeira::count();
-        // $this->totalUnidades = Unidade::count();
-        // $this->totalColaboradores = Colaborador::count();
+        $this->totalBandeiras = Bandeira::count();
+        $this->totalUnidades = Unidade::count();
+        $this->totalColaboradores = Colaborador::count();
     }
+
+    public function dashboard()
+    {
+        $totalUnidades = Unidade::count();
+        $totalColaboradoresPorUnidade = Unidade::withCount('colaboradores')->get();
+
+        $unidades = $totalColaboradoresPorUnidade->pluck('nome')->toArray();
+        $colaboradores = $totalColaboradoresPorUnidade->pluck('colaboradores_count')->toArray();
+
+        return view('dashboard', compact('unidades', 'colaboradores'));
+    }
+
 
     public function render()
     {

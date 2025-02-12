@@ -3,11 +3,15 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\Unidade;
 use App\Models\Bandeira;
+use Illuminate\Validation\Rule;
 
 class Unidades extends Component
 {
+    use WithPagination;
+
     public $nome_fantasia;
     public $razao_social;
     public $cnpj;
@@ -50,13 +54,19 @@ class Unidades extends Component
         $this->bandeiras = Bandeira::all();
     }
 
+    private function removeCnpjMask($cnpj)
+    {
+        return preg_replace('/[^0-9]/', '', $cnpj);
+    }
+
     public function save()
     {
         $this->validate([
             'nome_fantasia' => 'required|string|min:3',
             'razao_social' => 'required|string|min:3',
-        ]);        
-        
+            'cnpj' => ['required', 'string', 'size:18', Rule::unique('unidades')->ignore($this->unidadeId)],
+        ]);
+
         if ($this->unidadeId) {
             $unidade = Unidade::find($this->unidadeId);
             $unidade->update([
@@ -64,7 +74,7 @@ class Unidades extends Component
                 'razao_social' => $this->razao_social,
                 'cnpj' => $this->cnpj,
                 'bandeira_id' => $this->bandeira_id,
-            ]);            
+            ]);
         } else {
             $this->validate([
                 'bandeira_id' => 'required|exists:bandeiras,id',
@@ -73,7 +83,7 @@ class Unidades extends Component
             Unidade::create([
                 'nome_fantasia' => $this->nome_fantasia,
                 'razao_social' => $this->razao_social,
-                'cnpj' => $this->cnpj,
+                'cnpj' => $this->cnpj, // Armazena com máscara
                 'bandeira_id' => $this->bandeira_id,
             ]);
         }
@@ -83,10 +93,9 @@ class Unidades extends Component
 
     public function render()
     {
-        $unidades = Unidade::with('bandeira')->get();
+        $unidades = Unidade::with('bandeira')->paginate(10);
         return view('livewire.unidades', [
             'unidades' => $unidades
         ]);
     }
-
 }

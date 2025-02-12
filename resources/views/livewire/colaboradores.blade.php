@@ -58,13 +58,10 @@
                 </form>
             </div>
         </div>
-
-
     </div>
 
-
     <!-- Conteúdo Principal -->
-    <div id="main-content" class="container mt-5 ms-5" style="margin-left: 450px;">
+    <div id="main-content" class="flex-grow-1 p-4" style="margin-left: 250px;">
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card shadow-sm p-4">
@@ -112,7 +109,7 @@
                         <h4 class="mb-0">Relatório de Colaboradores</h4>
                     </div>
                     <div class="card-body">
-                    <table class="table table-striped w-100" style="width: 100%; padding: 10px;">
+                    <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -175,4 +172,3 @@
         </div>
     </div>
 </div>
-

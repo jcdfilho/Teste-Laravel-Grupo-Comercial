@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Expandindo
             sidebar.style.width = "250px";
             content.style.marginLeft = "250px";
+            content.classList.remove('collapsed');
 
             setTimeout(() => {
                 document.querySelectorAll("#sidebar .nav-link span").forEach(span => {
@@ -45,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Colapsando
             sidebar.style.width = "70px";
             content.style.marginLeft = "70px";
+            content.classList.add('collapsed');
 
             document.querySelectorAll("#sidebar .nav-link span").forEach(span => {
                 span.style.opacity = "0";
@@ -63,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (userImage) {
                 userImage.style.width = "70px";
                 userImage.style.height = "70px";
-                userImage.css({"border-radius": "50%"});
+                userImage.style.borderRadius = "50%";
             }
 
             // Posição do dropdown no menu colapsado
@@ -151,4 +153,36 @@ document.addEventListener("DOMContentLoaded", function () {
             userMenu.classList.remove("active");
         }
     });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var colaboradoresPorUnidade = {
+        labels: ['Unidade 1', 'Unidade 2', 'Unidade 3'],
+        datasets: [{
+            label: 'Número de Colaboradores',
+            data: [15, 25, 10],
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
+    };
+
+    // Configuração do gráfico
+    var config = {
+        type: 'bar', // Tipo de gráfico, pode ser 'bar', 'line', etc.
+        data: colaboradoresPorUnidade,
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+
+    // Criação do gráfico no canvas com id "colaboradoresChart"
+    var ctx = document.getElementById('colaboradoresChart').getContext('2d');
+    new Chart(ctx, config);
+
 });

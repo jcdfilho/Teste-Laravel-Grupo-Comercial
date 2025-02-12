@@ -13,6 +13,7 @@
     white-space: nowrap;
     position: fixed; 
     left: 0; 
+    z-index: 1050; /* Garante que a sidebar fique acima do conteúdo */
 }
 
 #sidebar .nav-link {
@@ -55,17 +56,20 @@
     position: absolute;
     right: 0;
     bottom: 40px;
-    transform: translateX(50%); /* Centraliza corretamente */
+    transform: translateX(50%);
 }
 
 .user-menu img {
     transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
 }
 
-
 #main-content {
     margin-left: 250px;
     transition: margin-left 0.3s ease-in-out;
+}
+
+#main-content.collapsed {
+    margin-left: 70px;
 }
 
 /*USUARIO*/

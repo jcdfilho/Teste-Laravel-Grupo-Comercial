@@ -64,6 +64,34 @@
     <div class="flex-grow-1 p-4" style="margin-left: 250px;">
         <h2 class="text-lg font-semibold mb-4">Relatório de Colaboradores</h2>
 
+        @if (session()->has('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session()->has('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        @foreach(Auth::user()->unreadNotifications as $notification)
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Sucesso!</strong> {{ $notification->data['message'] }}
+                <a href="{{ asset('storage/' . $notification->data['file_path']) }}" 
+                    wire:click="markAsRead('{{ $notification->id }}')"
+                    class="btn btn-success btn-sm" 
+                    download>
+                    Baixar Relatório
+                </a>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endforeach
+
+
         <!-- Filtros -->
         <div class="grid grid-cols-4 gap-4 bg-gray-100 p-4 rounded-lg">
             <div>
@@ -132,7 +160,6 @@
             {{ $colaboradores->links() }}
         </div>
 
-        <!-- Botão de Exportação -->
         <button wire:click="exportExcel" class="mt-4 bg-green-500 text-white px-4 py-2 rounded">
             Exportar para Excel
         </button>

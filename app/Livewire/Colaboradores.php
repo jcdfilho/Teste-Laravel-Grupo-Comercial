@@ -54,8 +54,9 @@ class Colaboradores extends Component
     {
         $this->validate([
             'nome' => 'required|string|min:3',
-            'email' => 'required|string|min:3',
-        ]);       
+            'email' => ['required', 'string', 'email', 'min:3'],
+            'cpf' => ['required', 'string', 'size:14']
+        ]);    
         
         if ($this->colaboradorId) {
             $colaborador = Colaborador::find($this->colaboradorId);
@@ -83,7 +84,7 @@ class Colaboradores extends Component
 
     public function render()
     {
-        $colaboradores = Colaborador::with('unidade')->get();
+        $colaboradores = Colaborador::with('unidade')->paginate(10);
         return view('livewire.colaboradores', [
             'colaboradores' => $colaboradores
         ]);
