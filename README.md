@@ -7,9 +7,9 @@
 <a href="https://packagist.org/packages/seu-pacote"><img src="https://img.shields.io/packagist/l/seu-pacote" alt="Licença"></a>
 </p>
 
-# Nome do Projeto
+# Teste Laravel
 
-Bem-vindo ao **Sistema de Grupos Comerciais**! Este é um sistema desenvolvido com **Laravel**, **Livewire**, e outros pacotes modernos para garantir uma experiência de usuário fluída e eficiente. Abaixo, você encontra todas as informações necessárias para instalar, configurar e começar a usar o projeto de maneira simples.
+Esse é um **Sistema de Grupos Comerciais** que foi desenvolvido com **Laravel** (em ambiente sail), **Livewire**, e outros pacotes modernos para garantir uma experiência de usuário fluída e eficiente. Abaixo, você encontra todas as informações necessárias para instalar, configurar e começar a usar o projeto de maneira simples.
 
 ## Funcionalidades
 
