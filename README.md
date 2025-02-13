@@ -9,14 +9,15 @@
 
 # Nome do Projeto
 
-Bem-vindo ao **Nome do Projeto**! Este é um sistema desenvolvido com **Laravel**, **Livewire**, e outros pacotes modernos para garantir uma experiência de usuário fluída e eficiente. Abaixo, você encontrará todas as informações necessárias para instalar, configurar e começar a usar o projeto de maneira simples.
+Bem-vindo ao **Sistema de Grupos Comerciais**! Este é um sistema desenvolvido com **Laravel**, **Livewire**, e outros pacotes modernos para garantir uma experiência de usuário fluída e eficiente. Abaixo, você encontra todas as informações necessárias para instalar, configurar e começar a usar o projeto de maneira simples.
 
 ## Funcionalidades
 
-- **Autenticação de Usuários:** Com Laravel Jetstream e Livewire, garantimos um sistema de autenticação seguro e rápido.
+- **Autenticação de Usuários:** Com Laravel Jetstream e Livewire, é garantido um sistema de autenticação seguro e rápido.
 - **CRUD Dinâmico:** Sistema para gerenciar grupos econômicos, unidades e colaboradores de maneira eficiente.
-- **Relatórios:** Geração de relatórios em Excel para visualização de dados.
-- **Armazenamento de Arquivos:** Armazenamento de arquivos de maneira segura no diretório `storage/app/public`.
+- **Relatórios:** Geração de relatórios de colaboradores e filtros relevantes ao mesmo. 
+- **Exportação:** Geração de relatórios em Excel para visualização de dados.
+- **Auditoria:** Local para verificar ações realizadas por alguém no sistema, assegurando o controle do mesmo.
 
 ## Instalação
 
@@ -90,16 +91,25 @@ Caso queira iniciar as filas para realizar as exportações, utilize:
 
 ## Como Usar
 
-Após a instalação e configuração, você pode acessar o sistema no seu navegador, indo até http://localhost.
+Após a instalação e configuração, você pode acessar o sistema no seu navegador, na página http://localhost. , caso tenha uma porta colocar ":numerodaporta"
 
-- Página Inicial: Mostra informações do sistema e permite acessar as funcionalidades.
+* Página Inicial: Mostra informações do sistema e permite acessar as funcionalidades.
 
-
-
-- CRUD: Você poderá gerenciar grupos econômicos, bandeiras, unidades e colaboradores.
-- Relatórios Colaboradores: Acesse a área de relatórios para exportar dados dos colaboradores em Excel.
-- Auditoria: Sessão de auditoria do sistema, onde armazena qualquer (Create, Update or Delete) do sistema
+![{082EB6C2-60CE-48C3-85D7-CAF4A840673B}](https://github.com/user-attachments/assets/a817b51a-bc1a-4d09-9edd-4fb6b64f5447)
 
 
-*Desenvolvido por Julio Cesar*
+* CRUD: Você poderá gerenciar grupos econômicos, bandeiras, unidades e colaboradores.
 
+![{F65D9D82-D4BF-429A-A64F-4A0F929E8D13}](https://github.com/user-attachments/assets/14c9d342-e9d1-4302-b4d0-1a55ba0eb0b9)
+
+
+* Relatórios Colaboradores: Acesse a área de relatórios para exportar dados dos colaboradores em Excel.
+
+![{05AF04B5-9F69-4EAF-BBF9-AD1B6ACA8E21}](https://github.com/user-attachments/assets/4f206093-97d4-49ad-ad2e-fd87437e6918)
+  
+* Auditoria: Sessão de auditoria do sistema, onde armazena qualquer (Create, Update or Delete) do sistema
+
+![{30CC3572-2025-460F-845C-DE55FD414360}](https://github.com/user-attachments/assets/dc572cf7-f05b-444e-a0cd-22b926c58e3a)
+
+
+**Desenvolvido por Julio Cesar**
