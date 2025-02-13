@@ -54,17 +54,12 @@ class Unidades extends Component
         $this->bandeiras = Bandeira::all();
     }
 
-    private function removeCnpjMask($cnpj)
-    {
-        return preg_replace('/[^0-9]/', '', $cnpj);
-    }
-
     public function save()
     {
         $this->validate([
             'nome_fantasia' => 'required|string|min:3',
             'razao_social' => 'required|string|min:3',
-            'cnpj' => ['required', 'string', 'size:18', Rule::unique('unidades')->ignore($this->unidadeId)],
+            'cnpj' => ['required', 'string', 'size:18'],
         ]);
 
         if ($this->unidadeId) {
@@ -83,7 +78,7 @@ class Unidades extends Component
             Unidade::create([
                 'nome_fantasia' => $this->nome_fantasia,
                 'razao_social' => $this->razao_social,
-                'cnpj' => $this->cnpj, // Armazena com máscara
+                'cnpj' => $this->cnpj,
                 'bandeira_id' => $this->bandeira_id,
             ]);
         }

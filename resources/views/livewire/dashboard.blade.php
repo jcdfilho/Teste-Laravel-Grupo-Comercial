@@ -110,28 +110,44 @@
 
         <!-- Gráfico -->
         <div class="row my-4">
-            <div class="col-md-12">
+            <div class="col-md-4>
                 <div class="card">
                     <div class="card-body">
-                        <h5>Gráfico de Colaboradores por Unidade</h5>
-                        <canvas id="colaboradoresChart"></canvas>
+                        <h5 class="card-title">Resumo do Sistema</h5>
+                        <canvas id="dashboardChart"></canvas>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Status de Fila -->
-        <div class="row my-4">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h5>Status de Fila</h5>
-                        <p>Status: <span class="badge bg-success">Em andamento</span></p>
-                        <p>Progresso da exportação de relatórios: 50%</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pusher-js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var ctx = document.getElementById('dashboardChart').getContext('2d');
 
-    </div>
-</div>
+        // Pegando os dados passados pelo Laravel e convertendo em JSON no JavaScript
+        var dados = JSON.parse('{!! $dadosJson !!}');
+
+        var dashboardChart = new Chart(ctx, {
+            type: 'bar', // Tipo do gráfico (pode ser 'bar', 'line', 'pie', etc.)
+            data: {
+                labels: Object.keys(dados), // Nomes das categorias
+                datasets: [{
+                    label: 'Quantidade',
+                    data: Object.values(dados), // Valores correspondentes
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4CAF50'], // Cores
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+</script>

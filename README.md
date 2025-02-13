@@ -1,66 +1,105 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Logo do Laravel"></a></p>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<a href="https://github.com/seu-usuario/seu-repositorio/actions"><img src="https://github.com/seu-usuario/seu-repositorio/workflows/tests/badge.svg" alt="Status de Build"></a>
+<a href="https://packagist.org/packages/seu-pacote"><img src="https://img.shields.io/packagist/dt/seu-pacote" alt="Total de Downloads"></a>
+<a href="https://packagist.org/packages/seu-pacote"><img src="https://img.shields.io/packagist/v/seu-pacote" alt="Versão Estável"></a>
+<a href="https://packagist.org/packages/seu-pacote"><img src="https://img.shields.io/packagist/l/seu-pacote" alt="Licença"></a>
 </p>
 
-## About Laravel
+# Nome do Projeto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Bem-vindo ao **Nome do Projeto**! Este é um sistema desenvolvido com **Laravel**, **Livewire**, e outros pacotes modernos para garantir uma experiência de usuário fluída e eficiente. Abaixo, você encontrará todas as informações necessárias para instalar, configurar e começar a usar o projeto de maneira simples.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Funcionalidades
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Autenticação de Usuários:** Com Laravel Jetstream e Livewire, garantimos um sistema de autenticação seguro e rápido.
+- **CRUD Dinâmico:** Sistema para gerenciar grupos econômicos, unidades e colaboradores de maneira eficiente.
+- **Relatórios:** Geração de relatórios em Excel para visualização de dados.
+- **Armazenamento de Arquivos:** Armazenamento de arquivos de maneira segura no diretório `storage/app/public`.
 
-## Learning Laravel
+## Instalação
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Para rodar este projeto no seu ambiente de desenvolvimento, siga os passos abaixo:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Requisitos
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **PHP 8.0 ou superior**
+- **Composer**
+- **Docker (opcional, se utilizar Sail)**
+- **MySQL**
 
-## Laravel Sponsors
+### Passo 1: Clonar o Repositório
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Clone este repositório em seu ambiente local:
 
-### Premium Partners
+"git clone https://github.com/seu-usuario/seu-repositorio.git"
+"cd seu-repositorio"
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### Passo 2: Instalar Dependências
 
-## Contributing
+Instale as dependências do projeto utilizando o Composer:
+"composer install"
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Passo 3: Configurar o Ambiente
 
-## Code of Conduct
+Copie o arquivo .env.example para .env: 
+"cp .env.example .env"
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Preencha as informações do banco de dados e outras configurações do seu ambiente no arquivo .env. Abaixo um exemplo de como preencher:
 
-## Security Vulnerabilities
+APP_DEBUG=false
+APP_LOCALE=pt_BR
+APP_TIMEZONE=America/Sao_Paulo
+QUEUE_CONNECTION=database
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=sail
+DB_PASSWORD=password
 
-## License
+Obs: Certifique-se de que a conexão com o banco de dados e outras configurações estão corretas para o seu ambiente.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Passo 4: Configurar o Docker (opcional)
+
+Se você estiver usando o Laravel Sail para um ambiente de desenvolvimento Docker, execute os seguintes comandos:
+"./vendor/bin/sail up -d"
+
+### Passo 5: Gerar a Key de Aplicação
+
+Gere a chave de aplicação para o Laravel:
+"./vendor/bin/sail artisan key:generate"
+
+### Passo 6: Executar as Migrations
+
+Execute as migrations para configurar o banco de dados:
+"./vendor/bin/sail artisan migrate"
+
+### Passo 7: Criar a Pasta de Relatórios
+
+Para garantir que a pasta de relatórios seja criada:
+"./vendor/bin/sail artisan storage:link"
+"mkdir -p storage/app/public/relatorios"
+
+### Passo 8: Para iniciar as filas
+
+Caso queira iniciar as filas para realizar as exportações, utilize:
+"./vendor/bin/sail artisan queue:work"
+
+## Como Usar
+
+Após a instalação e configuração, você pode acessar o sistema no seu navegador, indo até http://localhost.
+
+- Página Inicial: Mostra informações do sistema e permite acessar as funcionalidades.
+
+
+
+- CRUD: Você poderá gerenciar grupos econômicos, bandeiras, unidades e colaboradores.
+- Relatórios Colaboradores: Acesse a área de relatórios para exportar dados dos colaboradores em Excel.
+- Auditoria: Sessão de auditoria do sistema, onde armazena qualquer (Create, Update or Delete) do sistema
+
+
+*Desenvolvido por Julio Cesar*
+

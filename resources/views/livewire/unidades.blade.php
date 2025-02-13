@@ -84,7 +84,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="cnpj" class="form-label">CNPJ</label>
-                                <input wire:model="cnpj" type="text" class="form-control" id="cnpj" placeholder="Digite o CNPJ">
+                                <input wire:model="cnpj" type="text" class="form-control" id="cnpj" placeholder="Digite o CNPJ" maxlength="18">
                                 @error('cnpj') <span class="text-danger">'CNPJ precisa ser preenchido'</span> @enderror
                             </div>
                             @if(!$unidadeId)

@@ -55,7 +55,7 @@ class Colaboradores extends Component
         $this->validate([
             'nome' => 'required|string|min:3',
             'email' => ['required', 'string', 'email', 'min:3'],
-            'cpf' => ['required', 'string', 'size:14']
+            'cpf' => ['required', 'string', 'size:15']
         ]);    
         
         if ($this->colaboradorId) {

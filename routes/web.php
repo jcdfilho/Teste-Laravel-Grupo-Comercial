@@ -17,6 +17,10 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
+Route::get('/logout', function () {
+    return redirect('/login');
+});
+
 Route::get('/dashboard', Dashboard::class)->name('dashboard');
 
 Route::get('/grupos-economicos', GruposEconomicos::class)->name('grupos-economicos');

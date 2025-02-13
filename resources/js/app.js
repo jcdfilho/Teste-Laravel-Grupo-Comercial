@@ -154,35 +154,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-    var colaboradoresPorUnidade = {
-        labels: ['Unidade 1', 'Unidade 2', 'Unidade 3'],
-        datasets: [{
-            label: 'Número de Colaboradores',
-            data: [15, 25, 10],
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1
-        }]
-    };
-
-    // Configuração do gráfico
-    var config = {
-        type: 'bar', // Tipo de gráfico, pode ser 'bar', 'line', etc.
-        data: colaboradoresPorUnidade,
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    };
-
-    // Criação do gráfico no canvas com id "colaboradoresChart"
-    var ctx = document.getElementById('colaboradoresChart').getContext('2d');
-    new Chart(ctx, config);
-
-});

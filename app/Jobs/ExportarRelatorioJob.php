@@ -32,12 +32,15 @@ class ExportarRelatorioJob implements ShouldQueue
         $directory = storage_path('app/public/relatorios');
         $filename = 'relatorio_' . now()->format('YmdHis') . '.xlsx'; 
 
-        Log::info("Iniciando a geração do relatório: {$filename}");
+        Log::info("Caminho do diretório: {$directory}");
 
         if (!file_exists($directory)) {
             mkdir($directory, 0777, true);
             Log::info("Diretório de relatórios criado: {$directory}");
+        } else {
+            Log::info("Diretório de relatórios já existe.");
         }
+
 
         Excel::store(new ColaboradoresExport(
             $this->parametros['unidade_id'], 

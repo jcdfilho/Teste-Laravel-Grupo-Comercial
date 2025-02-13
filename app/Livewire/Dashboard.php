@@ -34,22 +34,15 @@ class Dashboard extends Component
         $this->totalColaboradores = Colaborador::count();
     }
 
-    public function dashboard()
-    {
-        $totalUnidades = Unidade::count();
-        $totalColaboradoresPorUnidade = Unidade::withCount('colaboradores')->get();
-
-        $unidades = $totalColaboradoresPorUnidade->pluck('nome')->toArray();
-        $colaboradores = $totalColaboradoresPorUnidade->pluck('colaboradores_count')->toArray();
-
-        return view('dashboard', compact('unidades', 'colaboradores'));
-    }
-
-
     public function render()
     {
-        $grupos = GrupoEconomico::where('nome', 'like', '%' . $this->search . '%')->get();
+        $dados = [
+            'Grupos Econômicos' => GrupoEconomico::count(),
+            'Bandeiras' => Bandeira::count(),
+            'Unidades' => Unidade::count(),
+            'Colaboradores' => Colaborador::count(),
+        ];
 
-        return view('livewire.dashboard', ['grupos' => $grupos]);
+        return view('livewire.dashboard', ['dadosJson' => json_encode($dados)]);
     }
 }
